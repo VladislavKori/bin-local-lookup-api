@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "${EXTERNAL_PORT}:${PORT}"
+    volumes:
+      - .:/app
+    environment:
+      - EXTERNAL_PORT=${EXTERNAL_PORT}
+      - PORT=${PORT}
+    restart: unless-stopped
